@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Digital</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Piano Digital</h1>
+
+    <!-- Seleção de acordes -->
+    <label for="chord">Escolha um acorde:</label>
+    <select id="chord">
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="G">G</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="Cm">Cm</option>
+        <option value="Dm">Dm</option>
+        <option value="Em">Em</option>
+        <option value="Fm">Fm</option>
+        <option value="Gm">Gm</option>
+        <option value="Am">Am</option>
+        <option value="Bm">Bm</option>
+    </select>
+    <button id="playChord">Tocar Acorde</button>
+
+    <!-- Div para mostrar as notas tocadas -->
+    <div id="output"></div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
