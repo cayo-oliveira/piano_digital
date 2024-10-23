@@ -43,7 +43,8 @@ body {
     border: 1px solid black;
     position: absolute;
     z-index: 2;
-    margin-left: -12.5px;
+    margin-left: -10px; /* Ajusta a posição entre teclas brancas */
+    transition: background-color 0.3s ease;
 }
 
 .active-white {
