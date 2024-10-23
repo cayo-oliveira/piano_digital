@@ -22,28 +22,27 @@ const chords = {
 function createPiano() {
     const pianoDiv = document.getElementById('piano');
     const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+    const blackNotes = [null, 'C#', 'D#', null, 'F#', 'G#', 'A#', null];
 
     // Limpa o div piano
     pianoDiv.innerHTML = "";
 
-    for (let i = 0; i < 7; i++) {
-        whiteNotes.forEach(note => {
-            const keyDiv = document.createElement('div');
-            keyDiv.className = 'piano-key white-key';
-            keyDiv.innerText = note;
-            pianoDiv.appendChild(keyDiv);
-        });
+    // Adiciona teclas brancas
+    whiteNotes.forEach((note, index) => {
+        const whiteKey = document.createElement('div');
+        whiteKey.className = 'piano-key white-key';
+        whiteKey.innerText = note;
+        pianoDiv.appendChild(whiteKey);
 
-        const blackNotes = ['C#', 'D#', null, 'F#', 'G#', 'A#', null];
-        blackNotes.forEach((note, index) => {
-            if (note) {
-                const blackKeyDiv = document.createElement('div');
-                blackKeyDiv.className = 'piano-key black-key';
-                blackKeyDiv.innerText = note;
-                pianoDiv.appendChild(blackKeyDiv);
-            }
-        });
-    }
+        // Adiciona teclas pretas (com posição relativa)
+        if (blackNotes[index]) {
+            const blackKey = document.createElement('div');
+            blackKey.className = 'piano-key black-key';
+            blackKey.style.left = `${(index + 1) * 40 - 12.5}px`;  // Posição correta entre as teclas brancas
+            blackKey.innerText = blackNotes[index];
+            pianoDiv.appendChild(blackKey);
+        }
+    });
 }
 
 // Função para tocar acorde
