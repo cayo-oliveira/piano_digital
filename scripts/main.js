@@ -23,6 +23,9 @@ function createPiano() {
     const pianoDiv = document.getElementById('piano');
     const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
+    // Limpa o div piano
+    pianoDiv.innerHTML = "";
+
     for (let i = 0; i < 7; i++) {
         whiteNotes.forEach(note => {
             const keyDiv = document.createElement('div');
