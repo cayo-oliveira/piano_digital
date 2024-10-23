@@ -43,8 +43,25 @@ body {
     border: 1px solid black;
     position: absolute;
     z-index: 2;
-    margin-left: -10px; /* Ajusta a posição entre teclas brancas */
+    margin-left: -10px; /* Ajusta a posição inicial */
+    left: calc(30px - 10px); /* Ajusta o espaçamento exato das teclas pretas */
     transition: background-color 0.3s ease;
+}
+
+.white-key:nth-child(2) ~ .black-key { /* Primeira tecla preta entre C e D */
+    left: 20px;
+}
+.white-key:nth-child(3) ~ .black-key { /* Segunda tecla preta entre D e E */
+    left: 55px;
+}
+.white-key:nth-child(5) ~ .black-key { /* Terceira tecla preta entre F e G */
+    left: 120px;
+}
+.white-key:nth-child(6) ~ .black-key { /* Quarta tecla preta entre G e A */
+    left: 155px;
+}
+.white-key:nth-child(7) ~ .black-key { /* Quinta tecla preta entre A e B */
+    left: 190px;
 }
 
 .active-white {
