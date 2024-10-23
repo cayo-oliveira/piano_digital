@@ -19,10 +19,11 @@ body {
     width: 210px; /* Ajustado para apenas uma oitava com espaçamento correto */
     height: 120px; /* Altura ajustada */
     margin: 0 auto; /* Centraliza o piano na tela */
+    position: relative; /* Necessário para o posicionamento absoluto das teclas pretas */
 }
 
 .white-key {
-    width: 30px;  /* Reduz a largura das teclas brancas */
+    width: 30px;  /* Largura das teclas brancas */
     height: 120px;  /* Altura das teclas brancas */
     background-color: white;
     border: 1px solid black;
@@ -41,16 +42,8 @@ body {
     border: 1px solid black;
     position: absolute;
     z-index: 2;
-    margin-left: -10px; /* Ajusta o espaçamento entre teclas brancas */
     transition: background-color 0.3s ease;
 }
-
-/* Posicionamento preciso das teclas pretas */
-.black-key.csharp { left: 20px; }
-.black-key.dsharp { left: 55px; }
-.black-key.fsharp { left: 115px; }
-.black-key.gsharp { left: 150px; }
-.black-key.asharp { left: 185px; }
 
 .active-white {
     background-color: #ADD8E6;  /* Azul claro para teclas brancas tocadas */

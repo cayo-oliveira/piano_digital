@@ -22,7 +22,7 @@ const chords = {
 function createPiano() {
     const pianoDiv = document.getElementById('piano');
     const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-    const blackNotes = ['C#', 'D#', null, 'F#', 'G#', 'A#'];
+    const blackNotes = ['C#', 'D#', null, 'F#', 'G#', 'A#']; // Posição exata das notas pretas entre as brancas
 
     // Limpa o div piano
     pianoDiv.innerHTML = "";
@@ -38,9 +38,12 @@ function createPiano() {
         // Adiciona as teclas pretas nos locais corretos
         if (blackNotes[index]) {
             const blackKey = document.createElement('div');
-            blackKey.className = `piano-key black-key ${blackNotes[index].toLowerCase()}sharp`;  // Adiciona classe específica para a tecla
-            blackKey.id = blackNotes[index];  // ID é a nota
+            blackKey.className = `piano-key black-key`; // Adiciona a classe para as teclas pretas
+            blackKey.id = blackNotes[index];  // ID é a nota preta
             blackKey.innerText = blackNotes[index];
+            // Atribui uma posição fixa de cada tecla preta em relação às brancas
+            blackKey.style.position = 'absolute';
+            blackKey.style.left = `${30 * (index + 1) - 10}px`;  // Calcula a posição da tecla preta
             pianoDiv.appendChild(blackKey);
         }
     });
