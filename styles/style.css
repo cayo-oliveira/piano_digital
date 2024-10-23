@@ -44,24 +44,27 @@ body {
     position: absolute;
     z-index: 2;
     margin-left: -10px; /* Ajusta a posição inicial */
-    left: calc(30px - 10px); /* Ajusta o espaçamento exato das teclas pretas */
     transition: background-color 0.3s ease;
 }
 
-.white-key:nth-child(2) ~ .black-key { /* Primeira tecla preta entre C e D */
-    left: 20px;
+.black-key.csharp {
+    left: 22px; /* Ajuste preciso para a tecla C# */
 }
-.white-key:nth-child(3) ~ .black-key { /* Segunda tecla preta entre D e E */
-    left: 55px;
+
+.black-key.dsharp {
+    left: 57px; /* Ajuste preciso para a tecla D# */
 }
-.white-key:nth-child(5) ~ .black-key { /* Terceira tecla preta entre F e G */
-    left: 120px;
+
+.black-key.fsharp {
+    left: 122px; /* Ajuste preciso para a tecla F# */
 }
-.white-key:nth-child(6) ~ .black-key { /* Quarta tecla preta entre G e A */
-    left: 155px;
+
+.black-key.gsharp {
+    left: 157px; /* Ajuste preciso para a tecla G# */
 }
-.white-key:nth-child(7) ~ .black-key { /* Quinta tecla preta entre A e B */
-    left: 190px;
+
+.black-key.asharp {
+    left: 192px; /* Ajuste preciso para a tecla A# */
 }
 
 .active-white {
