@@ -27,19 +27,20 @@ function createPiano() {
     // Limpa o div piano
     pianoDiv.innerHTML = "";
 
-    // Adiciona teclas brancas e teclas pretas
     whiteNotes.forEach((note, index) => {
+        // Cria as teclas brancas
         const whiteKey = document.createElement('div');
         whiteKey.className = 'piano-key white-key';
-        whiteKey.id = note;  // Adiciona o ID da nota
+        whiteKey.id = note;  // ID é a nota
         whiteKey.innerText = note;
         pianoDiv.appendChild(whiteKey);
 
+        // Adiciona as teclas pretas nos locais corretos
         if (blackNotes[index]) {
             const blackKey = document.createElement('div');
             blackKey.className = 'piano-key black-key';
-            blackKey.id = blackNotes[index];  // Adiciona o ID da nota
-            blackKey.style.left = `${(index + 1) * 40 - 12.5}px`;  // Posição correta entre as teclas brancas
+            blackKey.id = blackNotes[index];  // ID é a nota
+            blackKey.style.left = `${(index + 1) * 40 - 12.5}px`;  // Posiciona corretamente entre as teclas brancas
             blackKey.innerText = blackNotes[index];
             pianoDiv.appendChild(blackKey);
         }

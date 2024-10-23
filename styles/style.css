@@ -29,6 +29,7 @@ body {
     text-align: center;
     line-height: 180px;
     position: relative;
+    z-index: 1;  /* Mantém as teclas brancas embaixo das pretas */
 }
 
 .black-key {
@@ -37,7 +38,8 @@ body {
     background-color: black;
     border: 1px solid black;
     position: absolute;
-    margin-left: -12.5px; /* Para alinhar as teclas pretas entre as brancas */
+    z-index: 2;  /* Coloca as teclas pretas por cima das brancas */
+    margin-left: -12.5px;  /* Centraliza entre duas teclas brancas */
 }
 
 .active-white {
