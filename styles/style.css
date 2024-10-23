@@ -30,6 +30,7 @@ body {
     line-height: 180px;
     position: relative;
     z-index: 1;
+    transition: background-color 0.3s ease;
 }
 
 .black-key {
@@ -40,6 +41,7 @@ body {
     position: absolute;
     z-index: 2;
     margin-left: -12.5px;
+    transition: background-color 0.3s ease;
 }
 
 .active-white {

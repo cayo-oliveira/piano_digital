@@ -33,6 +33,7 @@ function createPiano() {
         whiteKey.className = 'piano-key white-key';
         whiteKey.id = note;  // ID é a nota
         whiteKey.innerText = note;
+        whiteKey.addEventListener('click', () => highlightChord(note));  // Adiciona evento de clique
         pianoDiv.appendChild(whiteKey);
 
         // Adiciona as teclas pretas nos locais corretos
@@ -42,6 +43,7 @@ function createPiano() {
             blackKey.id = blackNotes[index];  // ID é a nota
             blackKey.style.left = `${(index + 1) * 40 - 12.5}px`;  // Posiciona corretamente entre as teclas brancas
             blackKey.innerText = blackNotes[index];
+            blackKey.addEventListener('click', () => highlightChord(blackNotes[index]));  // Adiciona evento de clique
             pianoDiv.appendChild(blackKey);
         }
     });
@@ -50,16 +52,21 @@ function createPiano() {
 // Função para tocar acorde e destacar as teclas tocadas
 function playChord() {
     const selectedChord = document.getElementById('chord').value;
-    const notes = chords[selectedChord];
+    highlightChord(selectedChord);
+}
+
+// Função para destacar as teclas de um acorde ou nota
+function highlightChord(note) {
+    const notes = chords[note] || [note];  // Se a nota não for um acorde, trata como nota individual
 
     const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = `Notas do acorde ${selectedChord}: ${notes.join(', ')}`;
+    outputDiv.innerHTML = `Notas do acorde ${note}: ${notes.join(', ')}`;
 
     // Remove a classe 'active' de todas as teclas
     document.querySelectorAll('.white-key').forEach(key => key.classList.remove('active-white'));
     document.querySelectorAll('.black-key').forEach(key => key.classList.remove('active-black'));
 
-    // Adiciona a classe 'active' para as teclas que correspondem ao acorde tocado
+    // Adiciona a classe 'active' para as teclas que correspondem ao acorde tocado ou nota individual
     notes.forEach(note => {
         const keyElement = document.getElementById(note);
         if (keyElement) {
