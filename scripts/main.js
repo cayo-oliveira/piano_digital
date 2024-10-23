@@ -18,7 +18,7 @@ const chords = {
     "Bm": ['B', 'D', 'F#']
 };
 
-// Função para gerar as teclas do piano
+// Função para gerar as teclas do piano (apenas uma oitava)
 function createPiano() {
     const pianoDiv = document.getElementById('piano');
     const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
