@@ -22,22 +22,23 @@ const chords = {
 function createPiano() {
     const pianoDiv = document.getElementById('piano');
     const whiteNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-    const blackNotes = [null, 'C#', 'D#', null, 'F#', 'G#', 'A#', null];
+    const blackNotes = [null, 'C#', 'D#', null, 'F#', 'G#', 'A#'];
 
     // Limpa o div piano
     pianoDiv.innerHTML = "";
 
-    // Adiciona teclas brancas
+    // Adiciona teclas brancas e teclas pretas
     whiteNotes.forEach((note, index) => {
         const whiteKey = document.createElement('div');
         whiteKey.className = 'piano-key white-key';
+        whiteKey.id = note;  // Adiciona o ID da nota
         whiteKey.innerText = note;
         pianoDiv.appendChild(whiteKey);
 
-        // Adiciona teclas pretas (com posição relativa)
         if (blackNotes[index]) {
             const blackKey = document.createElement('div');
             blackKey.className = 'piano-key black-key';
+            blackKey.id = blackNotes[index];  // Adiciona o ID da nota
             blackKey.style.left = `${(index + 1) * 40 - 12.5}px`;  // Posição correta entre as teclas brancas
             blackKey.innerText = blackNotes[index];
             pianoDiv.appendChild(blackKey);
@@ -45,13 +46,29 @@ function createPiano() {
     });
 }
 
-// Função para tocar acorde
+// Função para tocar acorde e destacar as teclas tocadas
 function playChord() {
     const selectedChord = document.getElementById('chord').value;
     const notes = chords[selectedChord];
 
     const outputDiv = document.getElementById('output');
     outputDiv.innerHTML = `Notas do acorde ${selectedChord}: ${notes.join(', ')}`;
+
+    // Remove a classe 'active' de todas as teclas
+    document.querySelectorAll('.white-key').forEach(key => key.classList.remove('active-white'));
+    document.querySelectorAll('.black-key').forEach(key => key.classList.remove('active-black'));
+
+    // Adiciona a classe 'active' para as teclas que correspondem ao acorde tocado
+    notes.forEach(note => {
+        const keyElement = document.getElementById(note);
+        if (keyElement) {
+            if (keyElement.classList.contains('white-key')) {
+                keyElement.classList.add('active-white');
+            } else if (keyElement.classList.contains('black-key')) {
+                keyElement.classList.add('active-black');
+            }
+        }
+    });
 }
 
 // Inicializar o piano ao carregar a página
