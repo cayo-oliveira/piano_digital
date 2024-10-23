@@ -16,16 +16,14 @@ body {
 
 #piano {
     position: relative;
-    width: 280px; /* Ajustado para apenas uma oitava */
-    height: 120px; /* Altura reduzida para manter proporção */
+    width: 210px; /* Ajustado para apenas uma oitava com espaçamento correto */
+    height: 120px; /* Altura ajustada */
     margin: 0 auto; /* Centraliza o piano na tela */
-    display: flex;
-    justify-content: center;
 }
 
 .white-key {
-    width: 30px;  /* Reduz a largura das teclas */
-    height: 120px;  /* Ajusta a altura para uma proporção melhor */
+    width: 30px;  /* Reduz a largura das teclas brancas */
+    height: 120px;  /* Altura das teclas brancas */
     background-color: white;
     border: 1px solid black;
     display: inline-block;
@@ -37,35 +35,22 @@ body {
 }
 
 .black-key {
-    width: 20px;  /* Reduz a largura das teclas pretas */
-    height: 80px;  /* Ajusta a altura das teclas pretas */
+    width: 20px;  /* Largura das teclas pretas */
+    height: 80px;  /* Altura das teclas pretas */
     background-color: black;
     border: 1px solid black;
     position: absolute;
     z-index: 2;
-    margin-left: -10px; /* Ajusta a posição inicial */
+    margin-left: -10px; /* Ajusta o espaçamento entre teclas brancas */
     transition: background-color 0.3s ease;
 }
 
-.black-key.csharp {
-    left: 22px; /* Ajuste preciso para a tecla C# */
-}
-
-.black-key.dsharp {
-    left: 57px; /* Ajuste preciso para a tecla D# */
-}
-
-.black-key.fsharp {
-    left: 122px; /* Ajuste preciso para a tecla F# */
-}
-
-.black-key.gsharp {
-    left: 157px; /* Ajuste preciso para a tecla G# */
-}
-
-.black-key.asharp {
-    left: 192px; /* Ajuste preciso para a tecla A# */
-}
+/* Posicionamento preciso das teclas pretas */
+.black-key.csharp { left: 20px; }
+.black-key.dsharp { left: 55px; }
+.black-key.fsharp { left: 115px; }
+.black-key.gsharp { left: 150px; }
+.black-key.asharp { left: 185px; }
 
 .active-white {
     background-color: #ADD8E6;  /* Azul claro para teclas brancas tocadas */
